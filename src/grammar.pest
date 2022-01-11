@@ -1,0 +1,13 @@
+Program = _{ SOI ~ Expr ~ EOF }
+
+Expr = { Operator ~ Int ~ "with" ~ Int }
+
+Operator = { "add" | "subtract" | "divide" | "multiply" }
+
+Int = @{ Sign? ~ ASCII_DIGIT+ }
+
+Sign = _{ "-" | "+" }
+
+WHITESPACE = _{ " " | "\t" }
+
+EOF = _{ EOI | ";" }
